@@ -1,0 +1,5 @@
+accessify
+pygame
+numpy
+numba
+console-menu
