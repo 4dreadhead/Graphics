@@ -9,8 +9,8 @@
 
 ---
 
-##Description
-###The application consists of 4 methods:
+## Description
+### The application consists of 4 methods:
 1. Drawing triangles based on algorithms:
  - Non-Symmetric Digital Differential Analyzer,
  - Bresenham algorithm;
