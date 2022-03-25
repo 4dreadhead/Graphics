@@ -20,20 +20,26 @@ class LinesGenerator:
         self.clock, self.display = None, None
 
     def run(self):
+        still_running = True
         self.initialize_pygame_window()
 
         # Main loop
         while True:
-            # Catching resize events
+            # Catching events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    still_running = False
+                    break
 
                 if event.type == pygame.VIDEORESIZE:
                     self.display_width = event.w
                     self.display_height = event.h
                     self.display = pygame.display.set_mode((self.display_width, self.display_height), pygame.RESIZABLE)
+
+            # Quit if pygame window was closed
+            if not still_running:
+                break
 
             # Skip draw scene when window size too small
             if self.display_width < 100 or self.display_height < 100:
@@ -219,7 +225,3 @@ class LinesGenerator:
                     first_y += diff_y
                     current_diff -= current_position
             pygame.draw.rect(self.display, (255, 0, 0), (first_x, first_y, step_x, step_y))
-
-
-if __name__ == '__main__':
-    LinesGenerator().run()

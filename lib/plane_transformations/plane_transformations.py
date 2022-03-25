@@ -50,6 +50,7 @@ class FallingLeaf:
         self.make_move = True
 
     def run(self):
+        still_running = True
         self.initialize_pygame_window()
         self.create_leaf_apexes()
 
@@ -58,7 +59,12 @@ class FallingLeaf:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    still_running = False
+                    break
+
+            # Quit if pygame window was closed
+            if not still_running:
+                break
 
             # When leaf fallen - stop moving, else - falling
             if self.make_move:
@@ -188,7 +194,3 @@ class FallingLeaf:
         pygame.draw.rect(self.display, self.colors["brown"], (0, self.display_height - 100, self.display_width, 100))
         pygame.draw.line(self.display, self.colors["black"],
                          [0, self.display_height - 100], [self.display_width, self.display_height - 100], 5)
-
-
-if __name__ == '__main__':
-    FallingLeaf().run()

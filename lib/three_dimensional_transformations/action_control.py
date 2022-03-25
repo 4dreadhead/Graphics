@@ -6,6 +6,7 @@ import numpy as np
 
 class ActionControl(ThreeDimensionalTransformation):
     def run(self):
+        still_running = True
         self.initialize_pygame_window()
         self.set_figure()
 
@@ -18,7 +19,12 @@ class ActionControl(ThreeDimensionalTransformation):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    exit()
+                    still_running = False
+                    break
+
+            # Quit if pygame window was closed
+            if not still_running:
+                break
 
             self.display.fill((201, 232, 232))
 
@@ -92,7 +98,3 @@ class ActionControl(ThreeDimensionalTransformation):
                                                    TransformHelper.y_turn(second_y_count * np.pi / 250))
 
         self.perspective_transform()
-
-
-if __name__ == '__main__':
-    ActionControl().run()
