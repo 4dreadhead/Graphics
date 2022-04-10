@@ -4,8 +4,8 @@
 ---
 
 ### To run application:
-- Install Python
-- Install 'requirements.txt' (pip install -r "your_path_to_folder/requirements.txt")
+- Install Python3
+- Install 'requirements.txt' ( pip3 install -r "your_path_to_folder/requirements.txt" )
 - Run file 'lib/app.py'
 
 ---
