@@ -1,7 +1,7 @@
-from lines_generation.lines_generation import LinesGenerator
-from plane_transformations.plane_transformations import FallingLeaf
-from three_dimensional_transformations.action_control import ActionControl
-from three_dimensional_transformations.figure_rendering import FigureRendering
+from lib.lines_generation.lines_generation import LinesGenerator
+from lib.plane_transformations.plane_transformations import FallingLeaf
+from lib.three_dimensional_transformations.action_control import ActionControl
+from lib.three_dimensional_transformations.figure_rendering import FigureRendering
 from consolemenu import ConsoleMenu
 from consolemenu.items import FunctionItem
 
